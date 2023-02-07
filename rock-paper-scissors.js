@@ -1,21 +1,17 @@
 //Odin Project - Rock, Paper, Scissors
+//Tom Hergenreter - Feb 2022
 
-//Function for computer selection
-//Create an array to store the items rock, paper, scissors
-//Randomly select one of the items from the array
-//return the value selected
+//Initialize game
+playRockPaperScissors();
 
+//Get computer selection
 function getComputerChoice (){
     let computerChoices = ["rock", "paper", "scissors"];
     let computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     return computerChoice;
 }
 
-//Function for player selection
-//Prompt user for input of rock, paper, or scissors, case insensitive
-//output error message for invalid response
-//return the user selection
-
+//Get user selection, throw error if input is invalid
 function getUserChoice(){
     let userChoice = prompt("Choose Rock, Paper, or Scissors!").toLowerCase();
     if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
@@ -26,15 +22,16 @@ function getUserChoice(){
     }
 }
 
-//Function to choose winner
-//while win count for either computer or user is under 3 
-//display current score
-//display selections
-//loop through choice comaparison
-//tally win counts for user and computer
-//when user or computer reach 3 wins display win/loss message
+//Display win/loss message and score, ask for rematch
+function winLossMessage(userWinCount, computerWinCount){
+    console.log(`The final score is User ${userWinCount}, Computer ${computerWinCount}`);
+    let playAgain = userWinCount > computerWinCount ? confirm("Congratulations, you win! Play again?") : confirm("You lose, better luck next time! Play again?");
+    playAgain ? playRockPaperScissors() : alert("See you next time!");
+}
 
-function chooseWinner(){
+
+//Compare selections, determine winner, tally score, check if win/loss condition is met
+function playRockPaperScissors(){
     let userWinCount = 0; 
     let computerWinCount = 0;
     while(userWinCount < 3 && computerWinCount < 3){
@@ -59,13 +56,10 @@ function chooseWinner(){
             computerWinCount += 1;
         }
     } 
-    console.log(`The final score is User ${userWinCount}, Computer ${computerWinCount}`);
-    let playAgain = userWinCount > computerWinCount ? confirm("Congratulations, you win! Play again?") : confirm("You lose, better luck next time! Play again?");
-    playAgain ? chooseWinner() : alert("See you next time!");
-    
+    winLossMessage(userWinCount, computerWinCount);
 }
 
-chooseWinner();
+
 
 
 
