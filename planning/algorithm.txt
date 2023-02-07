@@ -1,0 +1,27 @@
+Planning for Odin Project - Rock, Paper, Scissors
+
+Problem:
+Build a rock paper scissors game to be played against the computer in the console using javascript. 
+
+Steps:
+# Make computer selection
+    Create array containing r, p, s
+    Randomly select one item from the array
+    assign to the computer as their selection
+# Get player selection
+    Prompt user for selection input of rock, paper, or scissors
+    assign to the user as their selection
+# Compare the users selection against the computers selection       
+    rock beats scissors 
+    scissors beats paper    
+    paper beats rock
+# Track results
+    track the results
+    display the score
+# Repeat 5 times 
+    Repeat the game 5 times 
+    game s completed after user wins or loses 3 times
+#Display a message when the game is won/lost
+    display the results of each round
+    display the overall winer
+    
