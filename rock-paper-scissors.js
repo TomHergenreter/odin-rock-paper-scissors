@@ -2,7 +2,16 @@
 //Tom Hergenreter - Feb 2022
 
 //Initialize game
-playRockPaperScissors();
+let userWinCount = 0; 
+let computerWinCount = 0;
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', getUserChoice));
+
+//Get user selection
+function getUserChoice(e){
+    playRound(this.id);
+    return;
+}
 
 //Get computer selection
 function getComputerChoice (){
@@ -11,52 +20,37 @@ function getComputerChoice (){
     return computerChoice;
 }
 
-//Get user selection, throw error if input is invalid
-function getUserChoice(){
-    let userChoice = prompt("Choose Rock, Paper, or Scissors!").toLowerCase();
-    if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
-        return userChoice;
-    }else {
-        alert("Invalid selection, please select Rock, Paper, or Scissors!");
-        return getUserChoice();
+//Compare selections, determine winner, tally score, check if win/loss condition is met
+function playRound(userChoice){
+    console.log(`The current score is User ${userWinCount}, Computer ${computerWinCount}`);
+    let user = userChoice;
+    let computer = getComputerChoice();
+    console.log(`user picks ${user}`);
+    console.log(`computer picks ${computer}`);
+    if(user === computer){
+        console.log("It's a tie!");  
+    }else if (user === "rock" && computer != "paper"){
+        userWinCount += 1;
+        console.log("You win!");  
+    }else if(user === "paper" && computer != "scissors"){
+        console.log("You win!");
+        userWinCount += 1;  
+    }else if(user === "scissors" && computer != "rock"){
+        console.log("You win!");
+        userWinCount += 1;
+    }else{
+        console.log("You lose!");
+        computerWinCount += 1;
     }
+
+    if(userWinCount === 3 || computerWinCount === 3){winLossMessage(userWinCount, computerWinCount)};
 }
 
 //Display win/loss message and score, ask for rematch
 function winLossMessage(userWinCount, computerWinCount){
     console.log(`The final score is User ${userWinCount}, Computer ${computerWinCount}`);
     let playAgain = userWinCount > computerWinCount ? confirm("Congratulations, you win! Play again?") : confirm("You lose, better luck next time! Play again?");
-    playAgain ? playRockPaperScissors() : alert("See you next time!");
-}
-
-
-//Compare selections, determine winner, tally score, check if win/loss condition is met
-function playRockPaperScissors(){
-    let userWinCount = 0; 
-    let computerWinCount = 0;
-    while(userWinCount < 3 && computerWinCount < 3){
-        console.log(`The current score is User ${userWinCount}, Computer ${computerWinCount}`);
-        let user = getUserChoice();
-        let computer = getComputerChoice();
-        console.log(`user picks ${user}`);
-        console.log(`computer picks ${computer}`);
-        if(user === computer){
-            console.log("It's a tie!");  
-        }else if (user === "rock" && computer != "paper"){
-            userWinCount += 1;
-            console.log("You win!");  
-        }else if(user === "paper" && computer != "scissors"){
-            console.log("You win!");
-            userWinCount += 1;  
-        }else if(user === "scissors" && computer != "rock"){
-            console.log("You win!");
-            userWinCount += 1;
-        }else{
-            console.log("You lose!");
-            computerWinCount += 1;
-        }
-    } 
-    winLossMessage(userWinCount, computerWinCount);
+    playAgain ? playRound() : alert("See you next time!");
 }
 
 
