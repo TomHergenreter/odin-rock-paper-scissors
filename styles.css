@@ -1,6 +1,12 @@
 /* styles for Rock Paper Scissors Revisited */
 
 /* global and reset styles */
+body {
+    display: block;
+    max-width: 60%;
+    margin: 0 auto;
+}
+
 button {
     display: block;
     margin: 20px 0px;
