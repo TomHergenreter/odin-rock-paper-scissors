@@ -22,6 +22,14 @@ function getComputerChoice (){
     return computerChoice;
 }
 
+//Display user and computer selections
+function displayChoice(userChoice, computerChoice){
+    let displayUserScore = document.querySelector('.user-selection');
+    displayUserScore.textContent = `Player Selects: ${userChoice}`;
+    let displayComputerScore = document.querySelector('.computer-selection');
+    displayComputerScore.textContent = `Computer Selects: ${computerChoice}`;
+}
+
 //Compare choices and update score
 function chooseWinner(userChoice, computerChoice){
     let results;  
@@ -51,14 +59,6 @@ function updateScoreBoard(){
     displayComputerScore.textContent = `Computer: ${computerWinCount}`;
 }
 
-//Display user and computer selections
-function displayChoice(userChoice, computerChoice){
-    let displayUserScore = document.querySelector('.user-selection');
-    displayUserScore.textContent = `Player Selects: ${userChoice}`;
-    let displayComputerScore = document.querySelector('.computer-selection');
-    displayComputerScore.textContent = `Computer Selects: ${computerChoice}`;
-}
-
 //Display win/loss message, reset score
 function endGame(){
     let endMessage = '';
@@ -66,10 +66,10 @@ function endGame(){
     messageDisplay.textContent = `${endMessage} Make new selection to play again!`;
     messageContainer.appendChild(messageDisplay);
     userWinCount = 0;
-    computerWinCount =0;
+    computerWinCount = 0;
 }
 
-//Compare selections, determine winner, tally score, check if win/loss condition is met
+//Constructor Function
 function playRound(userChoice){
     let computerChoice = getComputerChoice();
     displayChoice(userChoice, computerChoice);
