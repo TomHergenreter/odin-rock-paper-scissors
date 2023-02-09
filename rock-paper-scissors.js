@@ -55,8 +55,16 @@ function displayChoice(userChoice, computerChoice){
     displayComputerScore.textContent = `Computer Selects: ${computerChoice}`;
 }
 
+//Display win/loss message, reset score
 function endGame(){
-    alert('it works')
+    let endMessage = '';
+    userWinCount === 5 ? endMessage = 'You win!' : endMessage = 'You Lose!';
+    const messageContainer = document.querySelector('#message-container');
+    const messageDisplay = document.createElement('p');
+    messageDisplay.textContent = `${endMessage} make new selection to play again!`;
+    messageContainer.appendChild(messageDisplay);
+    userWinCount = 0;
+    computerWinCount =0;
 }
 
 //Compare selections, determine winner, tally score, check if win/loss condition is met
