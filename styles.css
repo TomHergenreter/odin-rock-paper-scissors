@@ -1,0 +1,23 @@
+/* styles for Rock Paper Scissors Revisited */
+
+/* global and reset styles */
+button {
+    display: block;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+}
+
+.score-board p {
+    display: block;
+    width: 50%;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
