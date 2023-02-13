@@ -57,3 +57,23 @@ h1 {
     gap: 1rem;
     flex-wrap: wrap;
 }
+
+#animation-container {
+    min-height: 200px;
+}
+
+.winning-icon {
+    background-color: green;
+    border-radius: 50% 50%;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.fade-out {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }

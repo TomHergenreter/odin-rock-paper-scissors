@@ -1,6 +1,8 @@
 //Odin Project - Rock, Paper, Scissors
 //Tom Hergenreter - Feb 2022
 
+
+//-------------------------Game Logic--------------------------------------
 let userWinCount = 0; 
 let computerWinCount = 0;
 const buttons = document.querySelectorAll('button');
@@ -49,6 +51,8 @@ function chooseWinner(userChoice, computerChoice){
         results = "You Lose!"; 
     }
     document.querySelector('.round-result').textContent = results;
+    displayWinner(results);
+
 }
 
 //Update score board
@@ -78,7 +82,21 @@ function playRound(userChoice){
     if(userWinCount === 5 || computerWinCount === 5) endGame(); 
 }
 
+//---------------------------------------Animations and UI----------------------
 
+function displayWinner(winningChoice) {
+    console.log(winningChoice);
+
+    const animationContainer = document.getElementById('animation-container');
+    const iconCheck = document.getElementById('icon');
+    iconCheck ? iconCheck.classList.add('fade-out') : console.log('test');
+    animationContainer.replaceChildren();
+    const animate = document.createElement('div');
+    animate.classList.add('winning-icon');
+    animate.id = 'icon';
+    animate.textContent = winningChoice;
+    animationContainer.append(animate);
+}
 
 
 
