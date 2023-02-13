@@ -24,12 +24,23 @@ button {
     border: none;
 }
 
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
 .circle-icon {
     display: block;
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    background-color: red;
+    border: 2px solid rebeccapurple;
+    background-image: linear-gradient(
+    to bottom,
+    rgba(7, 55, 250, 0.5),
+    rgba(255, 0, 191, 0.5)
+    );
+    overflow: hidden;
 }
 
 .flex-center {
