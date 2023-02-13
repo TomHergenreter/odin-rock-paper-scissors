@@ -1,31 +1,48 @@
 /* styles for Rock Paper Scissors Revisited */
 
 /* global and reset styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: block;
-    max-width: 60%;
+    max-width: 90%;
     margin: 0 auto;
 }
 
+element{ 
+    margin-top; 0px;
+}
+
+p {
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
 button {
+    border: none;
+}
+
+.circle-icon {
     display: block;
-    margin: 20px 0px;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: red;
 }
 
 .flex-center {
     display: flex;
     justify-content: center;
-}
-
-.flex-center p {
-    display: block;
-    width: 50%;
-    text-align: center;
-    margin: 5px;
+    align-items: center;
+    gap: 1rem;
 }
 
 .button-container {
     display: flex;
+    padding: 1em;
     justify-content: center;
-    gap: 1em;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
