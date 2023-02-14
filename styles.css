@@ -67,9 +67,9 @@ h1 {
 }
 
 .selection-icon {
-    background-color: green;
     width: 140px;
     height: 140px;
+    padding: 30px;
     border-radius: 50% 50%;
     animation: fadeInAnimation ease 1.5s;
     animation-iteration-count: 1;
@@ -86,4 +86,25 @@ h1 {
         opacity: 1;
         margin: 0px 0px;
     }
+}
+
+.scissors {
+    background-image: url("./images/scissors.png");
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rock {
+    background-image: url("./images/rock.png");
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.paper {
+    background-image: url("./images/paper.png");
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
 }

@@ -76,16 +76,15 @@ function playRound(userChoice){
 //---------------------------------------Animations and UI----------------------
 
 function displayWinner(winningChoice,userChoice, computerChoice) {
-    console.log(winningChoice);
-
     const animationContainer = document.getElementById('animation-container');
     animationContainer.replaceChildren();
+
     const userChoiceIcon = document.createElement('div');
-    userChoiceIcon.classList.add('selection-icon');
-    userChoiceIcon.textContent = userChoice;
+    userChoiceIcon.classList.add('selection-icon', `${userChoice}`);
+
     const computerChoiceIcon = document.createElement('div');
-    computerChoiceIcon.classList.add('selection-icon');
-    computerChoiceIcon.textContent = computerChoice;
+    computerChoiceIcon.classList.add('selection-icon', `${computerChoice}`);
+
     animationContainer.append(userChoiceIcon, computerChoiceIcon);
 }
 
