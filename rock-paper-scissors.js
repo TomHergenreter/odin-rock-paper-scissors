@@ -43,7 +43,7 @@ function chooseWinner(userChoice, computerChoice){
         results = "You Lose!"; 
     }
     document.querySelector('.round-result').textContent = results;
-    displayWinner(results, userChoice, computerChoice);
+    updateUI(results, userChoice, computerChoice);
 
 }
 
@@ -75,17 +75,30 @@ function playRound(userChoice){
 
 //---------------------------------------Animations and UI----------------------
 
-function displayWinner(winningChoice,userChoice, computerChoice) {
+function displaySelections(userChoice, computerChoice){
+//remove flashing border click cues and last selection cue on user icons 
+const userChoiceIcons = document.querySelectorAll('.initial-selection, .selected');
+userChoiceIcons.forEach(icon => icon.classList.remove('initial-selection','selected'));
+//add solid border to show selection
+document.querySelector(`#${userChoice}`).classList.add('selected');
+document.querySelector(`.computer-input .${computerChoice}`).classList.add('selected');
+}
+
+
+
+function updateUI(winningChoice,userChoice, computerChoice) {
+    //empty animation-container div
     const animationContainer = document.getElementById('animation-container');
     animationContainer.replaceChildren();
-
+    //create new element for user icon and set styles
     const userChoiceIcon = document.createElement('div');
     userChoiceIcon.classList.add('selection-icon', `${userChoice}`);
-
+    //create new element for computer icon and set styles
     const computerChoiceIcon = document.createElement('div');
     computerChoiceIcon.classList.add('selection-icon', `${computerChoice}`);
-
+    //append icons to animation container div
     animationContainer.append(userChoiceIcon, computerChoiceIcon);
+    displaySelections(userChoice, computerChoice);
 }
 
 
