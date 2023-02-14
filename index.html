@@ -14,7 +14,13 @@
     </head>
     <body>
         <h1> Rock Paper Scissors</h1>
-        <div id="animation-container"></div>
+        <div id="scoreboard" class="flex-center">
+            <p id="user-score"></p>
+            <p id="computer-score"></p>
+        </div>
+        <div id="animation-container">
+            <h2>Make your selection to begin!</h2>
+        </div>
         <div class="flex-center">
             <div class="user-input flex-container">
                 <button class="initial-selection circle-icon rock" id="rock" alt="rock button"></button>
@@ -30,10 +36,7 @@
                 <p class="flex-center circle-icon scissors"></p>
             </div>
         </div>
-        <div class="score-board, flex-center">
-            <p class="user-score">Player: 0</p>
-            <p class="computer-score">Computer: 0</p>
-        </div>
+        
         <div class="selection-board, flex-center">
             <p class="user-selection">Player Selects:</p>
             <p class="round-result"></p>

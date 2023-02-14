@@ -22,6 +22,7 @@ p {
 }
 
 button {
+    display: block;
     border: none;
     background-color: #fff;
 }
@@ -33,10 +34,9 @@ h1 {
 
 .circle-icon {
     display: block;
-    width: 5rem;
-    height: 5rem;
+    min-width: 5rem;
+    min-height: 5rem;
     border-radius: 50%;
-    overflow: hidden;
 }
 
 .initial-selection.circle-icon {
@@ -58,7 +58,7 @@ h1 {
 .flex-center {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     gap: 1rem;
 }
 
@@ -83,20 +83,18 @@ h1 {
 }
 
 .selection-icon {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     padding: 30px;
     border-radius: 50%;
-    animation: fadeInAnimation ease 1.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation: fadeInAnimation ease 1s;
 }
 
 
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
-        margin: 0px 30px;
+        margin: 0px 100px;
     }
     100% {
         opacity: 1;

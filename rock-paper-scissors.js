@@ -7,7 +7,6 @@ let userWinCount = 0;
 let computerWinCount = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', getUserChoice));
-const messageContainer = document.querySelector('#message-container');
 const messageDisplay = document.createElement('p');
 
 //Get user selection and initialize round
@@ -43,15 +42,15 @@ function chooseWinner(userChoice, computerChoice){
         results = "You Lose!"; 
     }
     document.querySelector('.round-result').textContent = results;
-    updateUI(results, userChoice, computerChoice);
+    
 
 }
 
 //Update score board
 function updateScoreBoard(){
-    let displayUserScore = document.querySelector('.user-score');
+    let displayUserScore = document.querySelector('#user-score');
     displayUserScore.textContent = `Player: ${userWinCount}`;
-    let displayComputerScore = document.querySelector('.computer-score');
+    let displayComputerScore = document.querySelector('#computer-score');
     displayComputerScore.textContent = `Computer: ${computerWinCount}`;
 }
 
@@ -60,7 +59,9 @@ function endGame(){
     let endMessage = '';
     userWinCount === 5 ? endMessage = 'You win!' : endMessage = 'You Lose!';
     messageDisplay.textContent = `${endMessage} Make new selection to play again!`;
-    messageContainer.appendChild(messageDisplay);
+    const scoreboard = document.querySelector('#animation-container');
+    scoreboard.replaceChildren();
+    scoreboard.appendChild(messageDisplay);
     userWinCount = 0;
     computerWinCount = 0;
 }
@@ -70,34 +71,35 @@ function playRound(userChoice){
     let computerChoice = getComputerChoice();
     chooseWinner(userChoice, computerChoice);
     updateScoreBoard();
+    updateUI(userChoice, computerChoice);
     if(userWinCount === 5 || computerWinCount === 5) endGame(); 
 }
 
 //---------------------------------------Animations and UI----------------------
 
 function displaySelections(userChoice, computerChoice){
+//empty animation-container div
+const animationContainer = document.getElementById('animation-container');
+animationContainer.replaceChildren();
 //remove flashing border click cues and last selection cue on user icons 
 const userChoiceIcons = document.querySelectorAll('.initial-selection, .selected');
 userChoiceIcons.forEach(icon => icon.classList.remove('initial-selection','selected'));
-//add solid border to show selection
+//add solid border to show selections
 document.querySelector(`#${userChoice}`).classList.add('selected');
 document.querySelector(`.computer-input .${computerChoice}`).classList.add('selected');
+//create new element for user icon and set styles
+const userChoiceIcon = document.createElement('div');
+userChoiceIcon.classList.add('selection-icon', `${userChoice}`);
+//create new element for computer icon and set styles
+const computerChoiceIcon = document.createElement('div');
+computerChoiceIcon.classList.add('selection-icon', `${computerChoice}`);
+//append icons to animation container div
+animationContainer.append(userChoiceIcon, computerChoiceIcon);
 }
 
 
 
-function updateUI(winningChoice,userChoice, computerChoice) {
-    //empty animation-container div
-    const animationContainer = document.getElementById('animation-container');
-    animationContainer.replaceChildren();
-    //create new element for user icon and set styles
-    const userChoiceIcon = document.createElement('div');
-    userChoiceIcon.classList.add('selection-icon', `${userChoice}`);
-    //create new element for computer icon and set styles
-    const computerChoiceIcon = document.createElement('div');
-    computerChoiceIcon.classList.add('selection-icon', `${computerChoice}`);
-    //append icons to animation container div
-    animationContainer.append(userChoiceIcon, computerChoiceIcon);
+function updateUI(userChoice, computerChoice) {
     displaySelections(userChoice, computerChoice);
 }
 
