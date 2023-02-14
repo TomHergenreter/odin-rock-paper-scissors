@@ -60,20 +60,30 @@ h1 {
 
 #animation-container {
     min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
-.winning-icon {
+.selection-icon {
     background-color: green;
+    width: 140px;
+    height: 140px;
     border-radius: 50% 50%;
-    opacity: 1;
-    transition: opacity 1s;
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
-.fade-out {
-    animation: fadeIn 1s;
-}
 
-@keyframes fadeIn {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-  }
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        margin: 0px 30px;
+    }
+    100% {
+        opacity: 1;
+        margin: 0px 0px;
+    }
+}

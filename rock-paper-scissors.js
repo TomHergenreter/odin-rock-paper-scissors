@@ -24,14 +24,6 @@ function getComputerChoice (){
     return computerChoice;
 }
 
-//Display user and computer selections
-function displayChoice(userChoice, computerChoice){
-    let displayUserScore = document.querySelector('.user-selection');
-    displayUserScore.textContent = `Player Selects: ${userChoice}`;
-    let displayComputerScore = document.querySelector('.computer-selection');
-    displayComputerScore.textContent = `Computer Selects: ${computerChoice}`;
-}
-
 //Compare choices and update score
 function chooseWinner(userChoice, computerChoice){
     let results;  
@@ -51,7 +43,7 @@ function chooseWinner(userChoice, computerChoice){
         results = "You Lose!"; 
     }
     document.querySelector('.round-result').textContent = results;
-    displayWinner(results);
+    displayWinner(results, userChoice, computerChoice);
 
 }
 
@@ -76,7 +68,6 @@ function endGame(){
 //Constructor Function
 function playRound(userChoice){
     let computerChoice = getComputerChoice();
-    displayChoice(userChoice, computerChoice);
     chooseWinner(userChoice, computerChoice);
     updateScoreBoard();
     if(userWinCount === 5 || computerWinCount === 5) endGame(); 
@@ -84,9 +75,18 @@ function playRound(userChoice){
 
 //---------------------------------------Animations and UI----------------------
 
-function displayWinner(winningChoice) {
+function displayWinner(winningChoice,userChoice, computerChoice) {
     console.log(winningChoice);
 
+    const animationContainer = document.getElementById('animation-container');
+    animationContainer.replaceChildren();
+    const userChoiceIcon = document.createElement('div');
+    userChoiceIcon.classList.add('selection-icon');
+    userChoiceIcon.textContent = userChoice;
+    const computerChoiceIcon = document.createElement('div');
+    computerChoiceIcon.classList.add('selection-icon');
+    computerChoiceIcon.textContent = computerChoice;
+    animationContainer.append(userChoiceIcon, computerChoiceIcon);
 }
 
 
