@@ -87,15 +87,6 @@ function playRound(userChoice){
 function displayWinner(winningChoice) {
     console.log(winningChoice);
 
-    const animationContainer = document.getElementById('animation-container');
-    const iconCheck = document.getElementById('icon');
-    iconCheck ? iconCheck.classList.add('fade-out') : console.log('test');
-    animationContainer.replaceChildren();
-    const animate = document.createElement('div');
-    animate.classList.add('winning-icon');
-    animate.id = 'icon';
-    animate.textContent = winningChoice;
-    animationContainer.append(animate);
 }
 
 
