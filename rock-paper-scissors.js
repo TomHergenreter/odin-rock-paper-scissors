@@ -93,8 +93,13 @@ userChoiceIcon.classList.add('selection-icon', `${userChoice}`);
 //create new element for computer icon and set styles
 const computerChoiceIcon = document.createElement('div');
 computerChoiceIcon.classList.add('selection-icon', `${computerChoice}`);
+//create element for vs img
+const vsImage = document.createElement('img');
+vsImage.src = './images/vsImage.png';
+vsImage.setAttribute('class', 'flex-center');
+vsImage.setAttribute('id', 'vsImage');
 //append icons to animation container div
-animationContainer.append(userChoiceIcon, computerChoiceIcon);
+animationContainer.append(userChoiceIcon, vsImage, computerChoiceIcon);
 }
 
 
