@@ -41,7 +41,7 @@ function chooseWinner(userChoice, computerChoice){
         computerWinCount += 1;
         results = "You Lose!"; 
     }
-    document.querySelector('.round-result').textContent = results;
+    // document.querySelector('.round-result').textContent = results;
     
 
 }
@@ -89,7 +89,7 @@ computerChoiceIcon.classList.add('selection-icon', `${computerChoice}`);
 //create element for vs img
 const vsImage = document.createElement('img');
 vsImage.src = './images/vsImage.png';
-vsImage.setAttribute('class', 'flex-center');
+// vsImage.setAttribute('class', 'flex-center');
 vsImage.setAttribute('id', 'vsImage');
 //append icons to animation container div
 animationContainer.append(userChoiceIcon, vsImage, computerChoiceIcon);
