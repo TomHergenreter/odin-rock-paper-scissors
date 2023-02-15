@@ -46,13 +46,7 @@ function chooseWinner(userChoice, computerChoice){
 
 }
 
-//Update score board
-function updateScoreBoard(){
-    let displayUserScore = document.querySelector('#user-score');
-    displayUserScore.textContent = `Player: ${userWinCount}`;
-    let displayComputerScore = document.querySelector('#computer-score');
-    displayComputerScore.textContent = `Computer: ${computerWinCount}`;
-}
+
 
 //Display win/loss message, reset score
 function endGame(){
@@ -70,7 +64,6 @@ function endGame(){
 function playRound(userChoice){
     let computerChoice = getComputerChoice();
     chooseWinner(userChoice, computerChoice);
-    updateScoreBoard();
     updateUI(userChoice, computerChoice);
     if(userWinCount === 5 || computerWinCount === 5) endGame(); 
 }
@@ -102,10 +95,17 @@ vsImage.setAttribute('id', 'vsImage');
 animationContainer.append(userChoiceIcon, vsImage, computerChoiceIcon);
 }
 
+//Update score board
+function updateScoreBoard(){
+    let displayScore = document.querySelector('#scoreboard');
+    displayScore.textContent = `${userWinCount} : ${computerWinCount}`;
+}
 
 
+//UI constructor function
 function updateUI(userChoice, computerChoice) {
     displaySelections(userChoice, computerChoice);
+    updateScoreBoard();
 }
 
 

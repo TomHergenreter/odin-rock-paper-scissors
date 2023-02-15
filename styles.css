@@ -6,9 +6,11 @@
 }
 
 body {
-    display: block;
+    height: 100vh;
     margin: 0 auto;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
 element{ 
@@ -41,7 +43,6 @@ header {
     padding: 2.5%;
     border: 3px solid;
     border-image-slice: 1;
-    /* border-width: 5px; */
     border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
     border-top: 0;
     border-right: 0;
@@ -98,16 +99,36 @@ header {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    flex: 1 0 auto;
+}
+
+#selection-container {
+    padding: 0px 2rem;
+    margin-top: 30px;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    border-right: 0;
+    border-left: 0;
+    box-shadow: 0px 0px 30px #cccccc;
 }
 
 #vsImage {
-    width: 100px;
+    min-width: 40px;
+    max-width: 160px;
+    flex-shrink: 2;
+    overflow: none;
+}
+
+#scoreboard {
+    min-width: 100px;
+    text-align: center;
+    font-size: 2rem;
 }
 
 .selection-icon {
-    width: 160px;
-    height: 160px;
-    padding: 30px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
     animation: fadeInAnimation ease 1s;
 }
@@ -143,4 +164,33 @@ header {
     background-size: 80% auto;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+@media (max-width: 450px) {
+    header {
+        margin-bottom: 0;
+    }
+    .logo {
+        max-width: 90%;
+    }
+    #animation-container {
+        flex: 8 0 auto;
+    }
+    #selection-container {
+        margin-top: 0;
+        padding: 0 20px;
+        gap: 0;
+        flex-grow: 2;
+   }
+    .selection-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .circle-icon {
+        margin:0 -15px;
+    }
+    #vsImage {
+        width: 40px;
+    }
+
 }
