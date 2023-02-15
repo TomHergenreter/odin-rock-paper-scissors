@@ -7,7 +7,6 @@
 
 body {
     display: block;
-    max-width: 90%;
     margin: 0 auto;
     background-color: #fff;
 }
@@ -21,15 +20,38 @@ p {
     margin-block-start: 0;
 }
 
+img {
+    display: block;
+}
+
 button {
     display: block;
     border: none;
-    background-color: #fff;
+    background-color: transparent;
 }
 
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 20px;
+    padding: 2.5%;
+    border: 3px solid;
+    border-image-slice: 1;
+    /* border-width: 5px; */
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    box-shadow: 0px 0px 30px #cccccc;
+}
+
+.logo {
+    max-width: 60%;
+    margin: 0 auto;
 }
 
 .circle-icon {
