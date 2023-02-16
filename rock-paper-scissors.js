@@ -8,6 +8,7 @@ let computerWinCount = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', getUserChoice));
 const messageDisplay = document.createElement('p');
+messageDisplay.id = 'end-message'
 
 //Get user selection and initialize round
 function getUserChoice(e){
@@ -48,9 +49,9 @@ function endGame(){
     let endMessage = '';
     userWinCount === 5 ? endMessage = 'You win!' : endMessage = 'You Lose!';
     messageDisplay.textContent = `${endMessage} Make new selection to play again!`;
-    const scoreboard = document.querySelector('#animation-container');
-    scoreboard.replaceChildren();
-    scoreboard.appendChild(messageDisplay);
+    const endMessageDisplay = document.querySelector('#animation-container');
+    // endMessage.replaceChildren();
+    endMessageDisplay.appendChild(messageDisplay);
     userWinCount = 0;
     computerWinCount = 0;
 }
