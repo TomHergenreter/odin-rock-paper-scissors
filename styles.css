@@ -125,8 +125,6 @@ header {
     gap: 2rem;
     flex: 1 0 auto;
     text-align: center;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.25rem;
     background-color: #ffffff;
     background-image: radial-gradient(#611fd4 0.5px, #ffffff 0.5px);
     background-size: 10px 10px;
@@ -135,6 +133,8 @@ header {
 #animation-container h2, p {
     background-image: linear-gradient( 109.6deg, rgba(193,98,253,1) 11.2%, rgba(0,49,165,1) 91.1% );
     padding: 10px;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
     color: #fff;
     border: 3px solid rgb(252, 0, 204);
 }
