@@ -41,12 +41,7 @@ function chooseWinner(userChoice, computerChoice){
         computerWinCount += 1;
         results = "You Lose!"; 
     }
-    // document.querySelector('.round-result').textContent = results;
-    
-
 }
-
-
 
 //Display win/loss message, reset score
 function endGame(){
