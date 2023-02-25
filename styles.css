@@ -97,6 +97,10 @@ button {
     background-position: center;
 }
 
+#rock, #paper, #scissors {
+    cursor: pointer;
+}
+
 /*----------------------------------Header Styles----------------------------------*/
 header {
     background-color: #fff;
